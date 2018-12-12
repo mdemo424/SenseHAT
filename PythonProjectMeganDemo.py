@@ -8,20 +8,20 @@ sense = SenseHat()
 # ------------------------------------------------
 
 # Colours
-colours = {
 
-  'r' : [255, 0, 0],
-  'o' : [255, 165, 0],
-  'y' : [255, 255, 0],
-  'g' : [0, 128, 0],
-  'b' : [0, 0, 255],
-  'i' : [75, 0, 130],
-  'v' : [238, 130, 238],
-  'n' : [135, 80, 22],
-  'w' : [255, 255, 255],
-  'e' : [0, 0, 0]  # e stands for empty/black
 
-}
+r = (255, 0, 0)
+o = (255, 165, 0)
+y = (255, 255, 0)
+g = (0, 128, 0)
+b = (0, 0, 255)
+i = (75, 0, 130)
+v = (238, 130, 238)
+n = (135, 80, 22)
+w = (255, 255, 255)
+e = (0, 0, 0)  # e stands for empty/black
+
+
 
 # Pictures
 with open ("pictures.txt", "r") as f:
@@ -38,13 +38,7 @@ def display_pic(pic_string):
   pic_string = pic_string.strip("\n")
   pic_string = pic_string.split(",")
 
-  # Look up each letter in the dictionary of colours and add it to the list
-  pic_list = []
-  for letter in pic_string:
-      pic_list.append(colours[letter])
-
-  # Display the pixel colours from the file
-  sense.set_pixels(pic_list)
+ 
 
 day = int(strftime("%d"))
 month = strftime("%B")
@@ -62,7 +56,7 @@ while True:
         today = int(strftime("%d"))
         month = strftime("%B")
         if month == "December" and day < 25:
-            sense.show_message(str(day))
+            sense.show_message(str(19-day) + " days left until winter break!", text_colour = 'v', back_colour = 'y', scroll_speed = 0.05)
             display_pic(all_pics[day])
             sleep(5)
         else:
