@@ -9,11 +9,11 @@ sense = SenseHat()
 
 # Colours
 
-
+t = (100, 100, 0)
 r = (255, 0, 0)
 o = (255, 165, 0)
 y = (255, 255, 0)
-g = (0, 128, 0)
+g = (0, 255, 0)
 b = (0, 0, 255)
 i = (75, 0, 130)
 v = (238, 130, 238)
@@ -61,3 +61,35 @@ while True:
             sleep(5)
         else:
             sense.show_message("Keep waiting")
+            
+            
+Day1 = [
+    e,e,e,g,g,e,e,e,
+    e,g,r,g,r,g,g,e,
+    e,g,g,e,e,g,g,e,
+    g,g,e,e,e,e,g,r,
+    g,r,e,e,e,e,g,g,
+    e,g,g,e,e,r,g,e,
+    e,g,g,g,g,g,g,e,
+    e,e,e,r,g,e,e,e
+    ]
+Day2 = [
+    t,e,t,e,e,t,e,t,
+    t,t,t,e,e,t,t,t,
+    e,t,e,e,e,e,t,e,
+    e,t,n,n,n,n,t,e,
+    e,n,w,n,n,w,n,e,
+    e,e,n,n,n,n,e,e,
+    e,e,n,r,r,n,e,e,
+    e,e,n,r,r,n,e,e
+    ]
+Day3 = [
+    e,e,e,g,g,e,e,e,
+    e,e,g,g,g,g,e,e,
+    e,e,g,g,g,g,e,e,
+    e,g,g,g,g,g,g,e,
+    e,g,g,g,g,g,g,e,
+    g,g,g,g,g,g,g,g,
+    e,e,e,n,n,e,e,e,
+    e,e,e,n,n,e,e,e
+    ]
