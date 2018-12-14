@@ -93,3 +93,23 @@ Day3 = [
     e,e,e,n,n,e,e,e,
     e,e,e,n,n,e,e,e
     ]
+Day4 = [
+    e,e,w,r,r,w,e,e,
+    e,r,w,w,r,w,w,e,
+    e,r,r,e,e,w,r,e,
+    e,e,e,e,w,r,r,e,
+    e,e,e,r,w,w,e,e,
+    e,e,w,r,r,e,e,e,
+    e,r,w,w,e,e,e,e,
+    e,r,r,e,e,e,e,e
+    ]
+Day5 = [
+    e,e,r,e,e,r,e,e,
+    e,e,r,r,r,r,e,e,
+    e,e,r,r,r,r,e,e,
+    e,g,g,r,r,g,g,e,
+    e,g,g,r,r,g,g,e,
+    e,r,r,r,r,r,r,e,
+    e,g,g,r,r,g,g,e,
+    e,g,g,r,r,g,g,e
+    ]
