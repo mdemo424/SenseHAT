@@ -1,5 +1,7 @@
 from sense_hat import SenseHat
 from time import sleep, strftime
+import datetime
+datetime.datetime.today
 
 sense = SenseHat()
 
@@ -55,12 +57,23 @@ while True:
     if event.action == "pressed" and event.direction == "middle":
         today = int(strftime("%d"))
         month = strftime("%B")
-        if month == "December" and day < 25:
-            sense.show_message(str(19-day) + " days left until winter break!", text_colour = 'v', back_colour = 'y', scroll_speed = 0.05)
-            display_pic(all_pics[day])
-            sleep(5)
-        else:
-            sense.show_message("Keep waiting")
+        if month == "December":
+            today.get_weekday()
+            if weekday == 0:
+                sense.set_pixels(Day1)
+            elif weekday == 1:
+                sense.set_pixels(Day2)
+            elif weekday == 2:
+                sense.set_pixels(Day3)
+            elif weekday == 3:
+                sense.set_pixels(Day4)
+            elif weekday == 4:
+                sense.set_pixels(Day5)
+            elif weekday == 5:
+                sense.set_pixels(Day6)
+            elif weekday == 6:
+                sense.set_pixels(Day7)
+            
             
             
 Day1 = [
