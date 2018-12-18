@@ -1,81 +1,31 @@
 from sense_hat import SenseHat
 from time import sleep, strftime
-import datetime
-datetime.datetime.today
+from datetime import date
+import calendar
+
+my_date = date.today()
+weekday = calendar.day_name[my_date.weekday()] 
 
 sense = SenseHat()
 
-# ------------------------------------------------
-# DATA
-# ------------------------------------------------
 
-# Colours
+# Colors
 
-t = (100, 100, 0)
-r = (255, 0, 0)
-o = (255, 165, 0)
-y = (255, 255, 0)
-g = (0, 255, 0)
-b = (0, 0, 255)
-i = (75, 0, 130)
-v = (238, 130, 238)
-n = (135, 80, 22)
-w = (255, 255, 255)
+t = (100, 100, 0) #tan
+r = (255, 0, 0) #red
+o = (255, 165, 0) #orange
+y = (255, 255, 0) #yellow
+g = (0, 255, 0) #green
+b = (0, 0, 255) #blue
+i = (75, 0, 130) #indigo (more purple)
+v = (238, 130, 238) #violet (more pink)
+n = (135, 80, 22) #brown
+w = (255, 255, 255) #white
 e = (0, 0, 0)  # e stands for empty/black
 
 
+#Wreath
 
-# Pictures
-with open ("pictures.txt", "r") as f:
-    all_pics = f.readlines()
-door = all_pics[0]
-# ------------------------------------------------
-# FUNCTIONS
-# ------------------------------------------------
-# Display a given picture string on the sense HAT
-# ------------------------------------------------
-def display_pic(pic_string):
-
-  # Get rid of newline and split the line into a list
-  pic_string = pic_string.strip("\n")
-  pic_string = pic_string.split(",")
-
- 
-
-day = int(strftime("%d"))
-month = strftime("%B")
-whole_date = strftime("%d/%m/%y")
-full_datetime = strftime("%d/%m/%y at %I:%M%p")
-
-# ------------------------------------------------
-# MAIN PROGRAM
-# ------------------------------------------------
-while True:
-    sense.clear()
-    display_pic(door)
-    event = sense.stick.wait_for_event()
-    if event.action == "pressed" and event.direction == "middle":
-        today = int(strftime("%d"))
-        month = strftime("%B")
-        if month == "December":
-            today.get_weekday()
-            if weekday == 0:
-                sense.set_pixels(Day1)
-            elif weekday == 1:
-                sense.set_pixels(Day2)
-            elif weekday == 2:
-                sense.set_pixels(Day3)
-            elif weekday == 3:
-                sense.set_pixels(Day4)
-            elif weekday == 4:
-                sense.set_pixels(Day5)
-            elif weekday == 5:
-                sense.set_pixels(Day6)
-            elif weekday == 6:
-                sense.set_pixels(Day7)
-            
-            
-            
 Day1 = [
     e,e,e,g,g,e,e,e,
     e,g,r,g,r,g,g,e,
@@ -86,6 +36,8 @@ Day1 = [
     e,g,g,g,g,g,g,e,
     e,e,e,r,g,e,e,e
     ]
+#Rudolph Reindeer
+
 Day2 = [
     t,e,t,e,e,t,e,t,
     t,t,t,e,e,t,t,t,
@@ -96,16 +48,22 @@ Day2 = [
     e,e,n,r,r,n,e,e,
     e,e,n,r,r,n,e,e
     ]
+
+#Crhistmas Tree
+
 Day3 = [
     e,e,e,g,g,e,e,e,
-    e,e,g,g,g,g,e,e,
-    e,e,g,g,g,g,e,e,
-    e,g,g,g,g,g,g,e,
-    e,g,g,g,g,g,g,e,
-    g,g,g,g,g,g,g,g,
+    e,e,g,r,g,g,e,e,
+    e,e,g,g,g,b,e,e,
+    e,g,b,g,r,g,g,e,
+    e,g,g,g,g,b,g,e,
+    g,b,g,r,g,g,r,g,
     e,e,e,n,n,e,e,e,
     e,e,e,n,n,e,e,e
     ]
+
+#Candy Cane
+
 Day4 = [
     e,e,w,r,r,w,e,e,
     e,r,w,w,r,w,w,e,
@@ -116,6 +74,9 @@ Day4 = [
     e,r,w,w,e,e,e,e,
     e,r,r,e,e,e,e,e
     ]
+
+#Present With Bow
+
 Day5 = [
     e,e,r,e,e,r,e,e,
     e,e,r,r,r,r,e,e,
@@ -126,3 +87,52 @@ Day5 = [
     e,g,g,r,r,g,g,e,
     e,g,g,r,r,g,g,e
     ]
+
+#Santa With Hat
+
+Day6 = [
+    e,e,r,r,r,r,e,e,
+    e,r,r,r,r,r,r,e,
+    w,w,r,r,r,r,r,e,
+    w,w,t,t,t,t,t,t,
+    e,e,t,b,t,t,b,t,
+    e,e,t,t,t,t,t,t,
+    e,e,t,v,t,t,v,t,
+    e,e,e,t,v,v,t,e
+    ]
+
+#Snowflake
+
+Day7 = [
+    w,e,w,e,e,w,e,w,
+    e,b,e,e,e,e,b,e,
+    w,e,b,b,b,b,e,w,
+    e,e,b,w,w,b,e,e,
+    e,e,b,w,w,b,e,e,
+    w,e,b,b,b,b,e,w,
+    e,b,e,e,e,e,b,e,
+    w,e,w,e,e,w,e,w
+    ]
+
+sense.clear()
+event = sense.stick.wait_for_event()
+
+if event.action == "pressed" and event.direction == "middle":
+    month = strftime("%B")
+    if month == "December":
+        if weekday == 'Sunday':
+            sense.set_pixels(Day1)
+        elif weekday == 'Monday':
+            sense.set_pixels(Day2)
+        elif weekday == 'Tuesday':
+            sense.set_pixels(Day3)
+        elif weekday == 'Wednesday':
+            sense.set_pixels(Day4)
+        elif weekday == 'Thursday':
+            sense.set_pixels(Day5)
+        elif weekday == 'Friday':
+            sense.set_pixels(Day6)
+        elif weekday == 'Saturday':
+            sense.set_pixels(Day7)
+    else:
+        sense.show_message("Keep Waiting!")
